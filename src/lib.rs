@@ -1,6 +1,3 @@
-#![feature(specialization)]
-#![feature(test)]
-extern crate test;
 extern crate memchr;
 
 #[macro_use]

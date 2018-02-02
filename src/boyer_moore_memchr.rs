@@ -45,7 +45,7 @@ impl <'a> SearchIn<'a, [u8]> for BoyerMooreMemchr<'a> {
 
 impl <'a> SkipSearch<u8> for &'a BoyerMooreMemchr <'a> {
     #[inline]
-    default fn skip_offset(&self, bad_char: u8, needle_position: usize, haystack: &[u8], haystack_position: usize) -> usize {
+    fn skip_offset(&self, bad_char: u8, needle_position: usize, haystack: &[u8], haystack_position: usize) -> usize {
         let skip = max(self.bad_chars[bad_char as usize], self.good_suffixes[needle_position]);
         if skip < self.needle.len() {
             skip

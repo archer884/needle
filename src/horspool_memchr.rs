@@ -42,7 +42,7 @@ impl <'a> SearchIn<'a, [u8]> for HorspoolMemchr<'a> {
 
 impl <'a> SkipSearch<u8> for &'a HorspoolMemchr <'a> {
     #[inline]
-    default fn skip_offset(&self, bad_char: u8, _needle_position: usize, haystack: &[u8], haystack_position: usize) -> usize {
+    fn skip_offset(&self, bad_char: u8, _needle_position: usize, haystack: &[u8], haystack_position: usize) -> usize {
         let skip = self.bad_chars[bad_char as usize];
         if skip < self.needle.len() {
             skip
